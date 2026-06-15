@@ -1,0 +1,2356 @@
+{
+  "databases": {
+    "darlington": {
+      "mtime": 1781149798.6414058,
+      "schema": {
+        "tables": [
+          "metrics_darlington"
+        ],
+        "primary_table": "metrics_darlington",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-DAR-000000",
+              "PRJ-DAR-000001",
+              "PRJ-DAR-000002",
+              "PRJ-DAR-000003",
+              "PRJ-DAR-000004",
+              "PRJ-DAR-000005",
+              "PRJ-DAR-000006",
+              "PRJ-DAR-000007",
+              "PRJ-DAR-000008",
+              "PRJ-DAR-000009",
+              "PRJ-DAR-000010",
+              "PRJ-DAR-000011",
+              "PRJ-DAR-000012",
+              "PRJ-DAR-000013",
+              "PRJ-DAR-000014",
+              "PRJ-DAR-000015",
+              "PRJ-DAR-000016",
+              "PRJ-DAR-000017",
+              "PRJ-DAR-000018",
+              "PRJ-DAR-000019",
+              "PRJ-DAR-000020",
+              "PRJ-DAR-000021",
+              "PRJ-DAR-000022",
+              "PRJ-DAR-000023",
+              "PRJ-DAR-000024",
+              "PRJ-DAR-000025",
+              "PRJ-DAR-000026",
+              "PRJ-DAR-000027",
+              "PRJ-DAR-000028",
+              "PRJ-DAR-000029",
+              "PRJ-DAR-000030",
+              "PRJ-DAR-000031",
+              "PRJ-DAR-000032",
+              "PRJ-DAR-000033",
+              "PRJ-DAR-000034",
+              "PRJ-DAR-000035",
+              "PRJ-DAR-000036",
+              "PRJ-DAR-000037",
+              "PRJ-DAR-000038",
+              "PRJ-DAR-000039",
+              "PRJ-DAR-000040",
+              "PRJ-DAR-000041",
+              "PRJ-DAR-000042",
+              "PRJ-DAR-000043",
+              "PRJ-DAR-000044",
+              "PRJ-DAR-000045",
+              "PRJ-DAR-000046",
+              "PRJ-DAR-000047",
+              "PRJ-DAR-000048",
+              "PRJ-DAR-000049",
+              "PRJ-DAR-000050",
+              "PRJ-DAR-000051",
+              "PRJ-DAR-000052",
+              "PRJ-DAR-000053",
+              "PRJ-DAR-000054",
+              "PRJ-DAR-000055",
+              "PRJ-DAR-000056",
+              "PRJ-DAR-000057",
+              "PRJ-DAR-000058",
+              "PRJ-DAR-000059",
+              "PRJ-DAR-000060",
+              "PRJ-DAR-000061",
+              "PRJ-DAR-000062",
+              "PRJ-DAR-000063",
+              "PRJ-DAR-000064",
+              "PRJ-DAR-000065",
+              "PRJ-DAR-000066",
+              "PRJ-DAR-000067",
+              "PRJ-DAR-000068",
+              "PRJ-DAR-000069",
+              "PRJ-DAR-000070",
+              "PRJ-DAR-000071",
+              "PRJ-DAR-000072",
+              "PRJ-DAR-000073",
+              "PRJ-DAR-000074",
+              "PRJ-DAR-000075",
+              "PRJ-DAR-000076",
+              "PRJ-DAR-000077",
+              "PRJ-DAR-000078",
+              "PRJ-DAR-000079",
+              "PRJ-DAR-000080",
+              "PRJ-DAR-000081",
+              "PRJ-DAR-000082",
+              "PRJ-DAR-000083",
+              "PRJ-DAR-000084",
+              "PRJ-DAR-000085",
+              "PRJ-DAR-000086",
+              "PRJ-DAR-000087",
+              "PRJ-DAR-000088",
+              "PRJ-DAR-000089",
+              "PRJ-DAR-000090",
+              "PRJ-DAR-000091",
+              "PRJ-DAR-000092",
+              "PRJ-DAR-000093",
+              "PRJ-DAR-000094",
+              "PRJ-DAR-000095",
+              "PRJ-DAR-000096",
+              "PRJ-DAR-000097",
+              "PRJ-DAR-000098",
+              "PRJ-DAR-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Darlington Wind Unit 1",
+              "Darlington Wind Unit 7",
+              "Darlington Wind Unit 3",
+              "Darlington Solar Unit 4",
+              "Darlington Hybrid Unit 4",
+              "Darlington Hybrid-Wind Unit 9",
+              "Darlington Hybrid-Solar Unit 4",
+              "Darlington Solar Unit 1",
+              "Darlington Hybrid-Solar Unit 7",
+              "Darlington Hybrid-Wind Unit 2",
+              "Darlington Solar Unit 2",
+              "Darlington Solar Unit 8",
+              "Darlington Hybrid Unit 3",
+              "Darlington Solar Unit 5",
+              "Darlington Hybrid-Wind Unit 6",
+              "Darlington Wind Unit 2",
+              "Darlington Hybrid-Solar Unit 3",
+              "Darlington Hybrid Unit 5",
+              "Darlington Hybrid-Solar Unit 9",
+              "Darlington Wind Unit 6",
+              "Darlington Hybrid-Wind Unit 7",
+              "Darlington Wind Unit 9",
+              "Darlington Hybrid-Wind Unit 1",
+              "Darlington Solar Unit 3",
+              "Darlington Solar Unit 6",
+              "Darlington Hybrid-Solar Unit 6",
+              "Darlington Hybrid Unit 7",
+              "Darlington Hybrid Unit 9",
+              "Darlington Hybrid-Solar Unit 8",
+              "Darlington Hybrid-Wind Unit 8",
+              "Darlington Wind Unit 5",
+              "Darlington Hybrid-Wind Unit 4",
+              "Darlington Hybrid Unit 1",
+              "Darlington Hybrid Unit 2",
+              "Darlington Solar Unit 7",
+              "Darlington Wind Unit 4",
+              "Darlington Hybrid-Solar Unit 5",
+              "Darlington Hybrid-Solar Unit 2",
+              "Darlington Hybrid-Solar Unit 1",
+              "Darlington Hybrid Unit 6",
+              "Darlington Hybrid Unit 8",
+              "Darlington Hybrid-Wind Unit 5",
+              "Darlington Hybrid-Wind Unit 3",
+              "Darlington Solar Unit 9",
+              "Darlington Wind Unit 8"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Darlington"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Expansion",
+              "Standard",
+              "Brownfield",
+              "Strategic",
+              "Greenfield"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Sterling & Wilson",
+              "Siemens",
+              "Adani Infra",
+              "GE Power",
+              "Suzlon",
+              "L&T",
+              "Tata Power"
+            ]
+          },
+          "material": {
+            "values": [
+              "Wind Turbines",
+              "PV Modules"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "Installed",
+              "At Site",
+              "In Transit",
+              "Customs Cleared",
+              "Ordered"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Pending",
+              "Advance Paid",
+              "Milestone 1 Cleared",
+              "Fully Paid",
+              "Milestone 2 Cleared"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "diablo_canyon": {
+      "mtime": 1781149616.3385484,
+      "schema": {
+        "tables": [
+          "metrics_diablo_canyon"
+        ],
+        "primary_table": "metrics_diablo_canyon",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-DIA-000000",
+              "PRJ-DIA-000001",
+              "PRJ-DIA-000002",
+              "PRJ-DIA-000003",
+              "PRJ-DIA-000004",
+              "PRJ-DIA-000005",
+              "PRJ-DIA-000006",
+              "PRJ-DIA-000007",
+              "PRJ-DIA-000008",
+              "PRJ-DIA-000009",
+              "PRJ-DIA-000010",
+              "PRJ-DIA-000011",
+              "PRJ-DIA-000012",
+              "PRJ-DIA-000013",
+              "PRJ-DIA-000014",
+              "PRJ-DIA-000015",
+              "PRJ-DIA-000016",
+              "PRJ-DIA-000017",
+              "PRJ-DIA-000018",
+              "PRJ-DIA-000019",
+              "PRJ-DIA-000020",
+              "PRJ-DIA-000021",
+              "PRJ-DIA-000022",
+              "PRJ-DIA-000023",
+              "PRJ-DIA-000024",
+              "PRJ-DIA-000025",
+              "PRJ-DIA-000026",
+              "PRJ-DIA-000027",
+              "PRJ-DIA-000028",
+              "PRJ-DIA-000029",
+              "PRJ-DIA-000030",
+              "PRJ-DIA-000031",
+              "PRJ-DIA-000032",
+              "PRJ-DIA-000033",
+              "PRJ-DIA-000034",
+              "PRJ-DIA-000035",
+              "PRJ-DIA-000036",
+              "PRJ-DIA-000037",
+              "PRJ-DIA-000038",
+              "PRJ-DIA-000039",
+              "PRJ-DIA-000040",
+              "PRJ-DIA-000041",
+              "PRJ-DIA-000042",
+              "PRJ-DIA-000043",
+              "PRJ-DIA-000044",
+              "PRJ-DIA-000045",
+              "PRJ-DIA-000046",
+              "PRJ-DIA-000047",
+              "PRJ-DIA-000048",
+              "PRJ-DIA-000049",
+              "PRJ-DIA-000050",
+              "PRJ-DIA-000051",
+              "PRJ-DIA-000052",
+              "PRJ-DIA-000053",
+              "PRJ-DIA-000054",
+              "PRJ-DIA-000055",
+              "PRJ-DIA-000056",
+              "PRJ-DIA-000057",
+              "PRJ-DIA-000058",
+              "PRJ-DIA-000059",
+              "PRJ-DIA-000060",
+              "PRJ-DIA-000061",
+              "PRJ-DIA-000062",
+              "PRJ-DIA-000063",
+              "PRJ-DIA-000064",
+              "PRJ-DIA-000065",
+              "PRJ-DIA-000066",
+              "PRJ-DIA-000067",
+              "PRJ-DIA-000068",
+              "PRJ-DIA-000069",
+              "PRJ-DIA-000070",
+              "PRJ-DIA-000071",
+              "PRJ-DIA-000072",
+              "PRJ-DIA-000073",
+              "PRJ-DIA-000074",
+              "PRJ-DIA-000075",
+              "PRJ-DIA-000076",
+              "PRJ-DIA-000077",
+              "PRJ-DIA-000078",
+              "PRJ-DIA-000079",
+              "PRJ-DIA-000080",
+              "PRJ-DIA-000081",
+              "PRJ-DIA-000082",
+              "PRJ-DIA-000083",
+              "PRJ-DIA-000084",
+              "PRJ-DIA-000085",
+              "PRJ-DIA-000086",
+              "PRJ-DIA-000087",
+              "PRJ-DIA-000088",
+              "PRJ-DIA-000089",
+              "PRJ-DIA-000090",
+              "PRJ-DIA-000091",
+              "PRJ-DIA-000092",
+              "PRJ-DIA-000093",
+              "PRJ-DIA-000094",
+              "PRJ-DIA-000095",
+              "PRJ-DIA-000096",
+              "PRJ-DIA-000097",
+              "PRJ-DIA-000098",
+              "PRJ-DIA-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Diablo Canyon Solar Unit 4",
+              "Diablo Canyon Wind Unit 5",
+              "Diablo Canyon Hybrid Unit 9",
+              "Diablo Canyon Hybrid-Solar Unit 5",
+              "Diablo Canyon Solar Unit 1",
+              "Diablo Canyon Hybrid-Solar Unit 2",
+              "Diablo Canyon Hybrid Unit 2",
+              "Diablo Canyon Hybrid-Solar Unit 3",
+              "Diablo Canyon Hybrid-Solar Unit 7",
+              "Diablo Canyon Hybrid-Wind Unit 8",
+              "Diablo Canyon Solar Unit 7",
+              "Diablo Canyon Hybrid-Solar Unit 9",
+              "Diablo Canyon Hybrid Unit 4",
+              "Diablo Canyon Hybrid-Wind Unit 4",
+              "Diablo Canyon Hybrid Unit 8",
+              "Diablo Canyon Solar Unit 3",
+              "Diablo Canyon Wind Unit 1",
+              "Diablo Canyon Solar Unit 6",
+              "Diablo Canyon Hybrid-Wind Unit 7",
+              "Diablo Canyon Solar Unit 2",
+              "Diablo Canyon Hybrid-Wind Unit 3",
+              "Diablo Canyon Hybrid Unit 7",
+              "Diablo Canyon Hybrid-Wind Unit 1",
+              "Diablo Canyon Solar Unit 5",
+              "Diablo Canyon Hybrid-Wind Unit 9",
+              "Diablo Canyon Wind Unit 7",
+              "Diablo Canyon Hybrid-Solar Unit 6",
+              "Diablo Canyon Hybrid-Wind Unit 2",
+              "Diablo Canyon Hybrid Unit 6",
+              "Diablo Canyon Wind Unit 4",
+              "Diablo Canyon Hybrid Unit 3",
+              "Diablo Canyon Wind Unit 3",
+              "Diablo Canyon Hybrid-Solar Unit 8",
+              "Diablo Canyon Solar Unit 8",
+              "Diablo Canyon Solar Unit 9",
+              "Diablo Canyon Hybrid-Wind Unit 5",
+              "Diablo Canyon Hybrid Unit 1",
+              "Diablo Canyon Wind Unit 8",
+              "Diablo Canyon Wind Unit 6",
+              "Diablo Canyon Hybrid-Solar Unit 4",
+              "Diablo Canyon Hybrid-Solar Unit 1",
+              "Diablo Canyon Wind Unit 2",
+              "Diablo Canyon Wind Unit 9",
+              "Diablo Canyon Hybrid Unit 5",
+              "Diablo Canyon Hybrid-Wind Unit 6"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Diablo canyon"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Expansion",
+              "Greenfield",
+              "Standard",
+              "Strategic",
+              "Brownfield"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Suzlon",
+              "L&T",
+              "Sterling & Wilson",
+              "GE Power",
+              "Siemens",
+              "Tata Power",
+              "Adani Infra"
+            ]
+          },
+          "material": {
+            "values": [
+              "PV Modules",
+              "Wind Turbines"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "At Site",
+              "In Transit",
+              "Installed",
+              "Ordered",
+              "Customs Cleared"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Milestone 1 Cleared",
+              "Milestone 2 Cleared",
+              "Advance Paid",
+              "Fully Paid",
+              "Pending"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "grand_gulf": {
+      "mtime": 1781149692.828067,
+      "schema": {
+        "tables": [
+          "metrics_grand_gulf"
+        ],
+        "primary_table": "metrics_grand_gulf",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-GRA-000000",
+              "PRJ-GRA-000001",
+              "PRJ-GRA-000002",
+              "PRJ-GRA-000003",
+              "PRJ-GRA-000004",
+              "PRJ-GRA-000005",
+              "PRJ-GRA-000006",
+              "PRJ-GRA-000007",
+              "PRJ-GRA-000008",
+              "PRJ-GRA-000009",
+              "PRJ-GRA-000010",
+              "PRJ-GRA-000011",
+              "PRJ-GRA-000012",
+              "PRJ-GRA-000013",
+              "PRJ-GRA-000014",
+              "PRJ-GRA-000015",
+              "PRJ-GRA-000016",
+              "PRJ-GRA-000017",
+              "PRJ-GRA-000018",
+              "PRJ-GRA-000019",
+              "PRJ-GRA-000020",
+              "PRJ-GRA-000021",
+              "PRJ-GRA-000022",
+              "PRJ-GRA-000023",
+              "PRJ-GRA-000024",
+              "PRJ-GRA-000025",
+              "PRJ-GRA-000026",
+              "PRJ-GRA-000027",
+              "PRJ-GRA-000028",
+              "PRJ-GRA-000029",
+              "PRJ-GRA-000030",
+              "PRJ-GRA-000031",
+              "PRJ-GRA-000032",
+              "PRJ-GRA-000033",
+              "PRJ-GRA-000034",
+              "PRJ-GRA-000035",
+              "PRJ-GRA-000036",
+              "PRJ-GRA-000037",
+              "PRJ-GRA-000038",
+              "PRJ-GRA-000039",
+              "PRJ-GRA-000040",
+              "PRJ-GRA-000041",
+              "PRJ-GRA-000042",
+              "PRJ-GRA-000043",
+              "PRJ-GRA-000044",
+              "PRJ-GRA-000045",
+              "PRJ-GRA-000046",
+              "PRJ-GRA-000047",
+              "PRJ-GRA-000048",
+              "PRJ-GRA-000049",
+              "PRJ-GRA-000050",
+              "PRJ-GRA-000051",
+              "PRJ-GRA-000052",
+              "PRJ-GRA-000053",
+              "PRJ-GRA-000054",
+              "PRJ-GRA-000055",
+              "PRJ-GRA-000056",
+              "PRJ-GRA-000057",
+              "PRJ-GRA-000058",
+              "PRJ-GRA-000059",
+              "PRJ-GRA-000060",
+              "PRJ-GRA-000061",
+              "PRJ-GRA-000062",
+              "PRJ-GRA-000063",
+              "PRJ-GRA-000064",
+              "PRJ-GRA-000065",
+              "PRJ-GRA-000066",
+              "PRJ-GRA-000067",
+              "PRJ-GRA-000068",
+              "PRJ-GRA-000069",
+              "PRJ-GRA-000070",
+              "PRJ-GRA-000071",
+              "PRJ-GRA-000072",
+              "PRJ-GRA-000073",
+              "PRJ-GRA-000074",
+              "PRJ-GRA-000075",
+              "PRJ-GRA-000076",
+              "PRJ-GRA-000077",
+              "PRJ-GRA-000078",
+              "PRJ-GRA-000079",
+              "PRJ-GRA-000080",
+              "PRJ-GRA-000081",
+              "PRJ-GRA-000082",
+              "PRJ-GRA-000083",
+              "PRJ-GRA-000084",
+              "PRJ-GRA-000085",
+              "PRJ-GRA-000086",
+              "PRJ-GRA-000087",
+              "PRJ-GRA-000088",
+              "PRJ-GRA-000089",
+              "PRJ-GRA-000090",
+              "PRJ-GRA-000091",
+              "PRJ-GRA-000092",
+              "PRJ-GRA-000093",
+              "PRJ-GRA-000094",
+              "PRJ-GRA-000095",
+              "PRJ-GRA-000096",
+              "PRJ-GRA-000097",
+              "PRJ-GRA-000098",
+              "PRJ-GRA-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Grand Gulf Hybrid-Solar Unit 7",
+              "Grand Gulf Wind Unit 8",
+              "Grand Gulf Hybrid Unit 1",
+              "Grand Gulf Hybrid Unit 9",
+              "Grand Gulf Solar Unit 1",
+              "Grand Gulf Hybrid-Solar Unit 8",
+              "Grand Gulf Hybrid-Wind Unit 3",
+              "Grand Gulf Wind Unit 9",
+              "Grand Gulf Solar Unit 3",
+              "Grand Gulf Wind Unit 3",
+              "Grand Gulf Hybrid-Wind Unit 2",
+              "Grand Gulf Wind Unit 6",
+              "Grand Gulf Hybrid-Solar Unit 3",
+              "Grand Gulf Hybrid-Wind Unit 8",
+              "Grand Gulf Hybrid-Solar Unit 1",
+              "Grand Gulf Hybrid Unit 6",
+              "Grand Gulf Hybrid Unit 2",
+              "Grand Gulf Hybrid-Solar Unit 4",
+              "Grand Gulf Hybrid Unit 7",
+              "Grand Gulf Solar Unit 6",
+              "Grand Gulf Hybrid Unit 5",
+              "Grand Gulf Hybrid-Solar Unit 9",
+              "Grand Gulf Hybrid-Wind Unit 1",
+              "Grand Gulf Wind Unit 5",
+              "Grand Gulf Solar Unit 4",
+              "Grand Gulf Hybrid-Wind Unit 7",
+              "Grand Gulf Wind Unit 2",
+              "Grand Gulf Solar Unit 8",
+              "Grand Gulf Hybrid Unit 8",
+              "Grand Gulf Solar Unit 5",
+              "Grand Gulf Hybrid-Solar Unit 2",
+              "Grand Gulf Solar Unit 2",
+              "Grand Gulf Wind Unit 7",
+              "Grand Gulf Hybrid-Wind Unit 6",
+              "Grand Gulf Wind Unit 1",
+              "Grand Gulf Hybrid-Wind Unit 4",
+              "Grand Gulf Hybrid-Solar Unit 6",
+              "Grand Gulf Hybrid-Wind Unit 9",
+              "Grand Gulf Hybrid-Wind Unit 5",
+              "Grand Gulf Hybrid-Solar Unit 5",
+              "Grand Gulf Solar Unit 7",
+              "Grand Gulf Hybrid Unit 4",
+              "Grand Gulf Wind Unit 4",
+              "Grand Gulf Solar Unit 9",
+              "Grand Gulf Hybrid Unit 3"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Grand gulf"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Brownfield",
+              "Strategic",
+              "Greenfield",
+              "Standard",
+              "Expansion"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Tata Power",
+              "Siemens",
+              "Sterling & Wilson",
+              "Suzlon",
+              "GE Power",
+              "L&T",
+              "Adani Infra"
+            ]
+          },
+          "material": {
+            "values": [
+              "PV Modules",
+              "Wind Turbines"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "Ordered",
+              "At Site",
+              "In Transit",
+              "Customs Cleared",
+              "Installed"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Pending",
+              "Advance Paid",
+              "Milestone 2 Cleared",
+              "Fully Paid",
+              "Milestone 1 Cleared"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "hinkley_point": {
+      "mtime": 1781149762.168248,
+      "schema": {
+        "tables": [
+          "metrics_hinkley_point"
+        ],
+        "primary_table": "metrics_hinkley_point",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-HIN-000000",
+              "PRJ-HIN-000001",
+              "PRJ-HIN-000002",
+              "PRJ-HIN-000003",
+              "PRJ-HIN-000004",
+              "PRJ-HIN-000005",
+              "PRJ-HIN-000006",
+              "PRJ-HIN-000007",
+              "PRJ-HIN-000008",
+              "PRJ-HIN-000009",
+              "PRJ-HIN-000010",
+              "PRJ-HIN-000011",
+              "PRJ-HIN-000012",
+              "PRJ-HIN-000013",
+              "PRJ-HIN-000014",
+              "PRJ-HIN-000015",
+              "PRJ-HIN-000016",
+              "PRJ-HIN-000017",
+              "PRJ-HIN-000018",
+              "PRJ-HIN-000019",
+              "PRJ-HIN-000020",
+              "PRJ-HIN-000021",
+              "PRJ-HIN-000022",
+              "PRJ-HIN-000023",
+              "PRJ-HIN-000024",
+              "PRJ-HIN-000025",
+              "PRJ-HIN-000026",
+              "PRJ-HIN-000027",
+              "PRJ-HIN-000028",
+              "PRJ-HIN-000029",
+              "PRJ-HIN-000030",
+              "PRJ-HIN-000031",
+              "PRJ-HIN-000032",
+              "PRJ-HIN-000033",
+              "PRJ-HIN-000034",
+              "PRJ-HIN-000035",
+              "PRJ-HIN-000036",
+              "PRJ-HIN-000037",
+              "PRJ-HIN-000038",
+              "PRJ-HIN-000039",
+              "PRJ-HIN-000040",
+              "PRJ-HIN-000041",
+              "PRJ-HIN-000042",
+              "PRJ-HIN-000043",
+              "PRJ-HIN-000044",
+              "PRJ-HIN-000045",
+              "PRJ-HIN-000046",
+              "PRJ-HIN-000047",
+              "PRJ-HIN-000048",
+              "PRJ-HIN-000049",
+              "PRJ-HIN-000050",
+              "PRJ-HIN-000051",
+              "PRJ-HIN-000052",
+              "PRJ-HIN-000053",
+              "PRJ-HIN-000054",
+              "PRJ-HIN-000055",
+              "PRJ-HIN-000056",
+              "PRJ-HIN-000057",
+              "PRJ-HIN-000058",
+              "PRJ-HIN-000059",
+              "PRJ-HIN-000060",
+              "PRJ-HIN-000061",
+              "PRJ-HIN-000062",
+              "PRJ-HIN-000063",
+              "PRJ-HIN-000064",
+              "PRJ-HIN-000065",
+              "PRJ-HIN-000066",
+              "PRJ-HIN-000067",
+              "PRJ-HIN-000068",
+              "PRJ-HIN-000069",
+              "PRJ-HIN-000070",
+              "PRJ-HIN-000071",
+              "PRJ-HIN-000072",
+              "PRJ-HIN-000073",
+              "PRJ-HIN-000074",
+              "PRJ-HIN-000075",
+              "PRJ-HIN-000076",
+              "PRJ-HIN-000077",
+              "PRJ-HIN-000078",
+              "PRJ-HIN-000079",
+              "PRJ-HIN-000080",
+              "PRJ-HIN-000081",
+              "PRJ-HIN-000082",
+              "PRJ-HIN-000083",
+              "PRJ-HIN-000084",
+              "PRJ-HIN-000085",
+              "PRJ-HIN-000086",
+              "PRJ-HIN-000087",
+              "PRJ-HIN-000088",
+              "PRJ-HIN-000089",
+              "PRJ-HIN-000090",
+              "PRJ-HIN-000091",
+              "PRJ-HIN-000092",
+              "PRJ-HIN-000093",
+              "PRJ-HIN-000094",
+              "PRJ-HIN-000095",
+              "PRJ-HIN-000096",
+              "PRJ-HIN-000097",
+              "PRJ-HIN-000098",
+              "PRJ-HIN-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Hinkley Point Solar Unit 2",
+              "Hinkley Point Hybrid Unit 6",
+              "Hinkley Point Wind Unit 1",
+              "Hinkley Point Solar Unit 5",
+              "Hinkley Point Hybrid Unit 8",
+              "Hinkley Point Hybrid-Solar Unit 1",
+              "Hinkley Point Hybrid-Solar Unit 3",
+              "Hinkley Point Hybrid-Solar Unit 9",
+              "Hinkley Point Wind Unit 8",
+              "Hinkley Point Hybrid-Solar Unit 6",
+              "Hinkley Point Hybrid-Wind Unit 3",
+              "Hinkley Point Hybrid Unit 2",
+              "Hinkley Point Solar Unit 4",
+              "Hinkley Point Solar Unit 7",
+              "Hinkley Point Wind Unit 2",
+              "Hinkley Point Solar Unit 3",
+              "Hinkley Point Solar Unit 1",
+              "Hinkley Point Hybrid Unit 4",
+              "Hinkley Point Hybrid Unit 1",
+              "Hinkley Point Hybrid-Wind Unit 4",
+              "Hinkley Point Solar Unit 9",
+              "Hinkley Point Hybrid-Wind Unit 2",
+              "Hinkley Point Hybrid-Wind Unit 1",
+              "Hinkley Point Solar Unit 8",
+              "Hinkley Point Hybrid-Wind Unit 9",
+              "Hinkley Point Hybrid-Wind Unit 5",
+              "Hinkley Point Hybrid-Wind Unit 7",
+              "Hinkley Point Hybrid-Solar Unit 4",
+              "Hinkley Point Wind Unit 5",
+              "Hinkley Point Wind Unit 6",
+              "Hinkley Point Hybrid-Solar Unit 5",
+              "Hinkley Point Solar Unit 6",
+              "Hinkley Point Hybrid-Wind Unit 8",
+              "Hinkley Point Hybrid Unit 9",
+              "Hinkley Point Wind Unit 7",
+              "Hinkley Point Wind Unit 4",
+              "Hinkley Point Hybrid Unit 3",
+              "Hinkley Point Hybrid-Solar Unit 2",
+              "Hinkley Point Hybrid-Solar Unit 8",
+              "Hinkley Point Wind Unit 9",
+              "Hinkley Point Wind Unit 3",
+              "Hinkley Point Hybrid-Wind Unit 6",
+              "Hinkley Point Hybrid Unit 5",
+              "Hinkley Point Hybrid Unit 7",
+              "Hinkley Point Hybrid-Solar Unit 7"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Hinkley point"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Brownfield",
+              "Greenfield",
+              "Expansion",
+              "Standard",
+              "Strategic"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Tata Power",
+              "Siemens",
+              "L&T",
+              "Sterling & Wilson",
+              "GE Power",
+              "Suzlon",
+              "Adani Infra"
+            ]
+          },
+          "material": {
+            "values": [
+              "PV Modules",
+              "Wind Turbines"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "Installed",
+              "Customs Cleared",
+              "In Transit",
+              "At Site",
+              "Ordered"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Pending",
+              "Milestone 1 Cleared",
+              "Milestone 2 Cleared",
+              "Fully Paid",
+              "Advance Paid"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "kashiwazaki": {
+      "mtime": 1781149782.1110954,
+      "schema": {
+        "tables": [
+          "metrics_kashiwazaki"
+        ],
+        "primary_table": "metrics_kashiwazaki",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-KAS-000000",
+              "PRJ-KAS-000001",
+              "PRJ-KAS-000002",
+              "PRJ-KAS-000003",
+              "PRJ-KAS-000004",
+              "PRJ-KAS-000005",
+              "PRJ-KAS-000006",
+              "PRJ-KAS-000007",
+              "PRJ-KAS-000008",
+              "PRJ-KAS-000009",
+              "PRJ-KAS-000010",
+              "PRJ-KAS-000011",
+              "PRJ-KAS-000012",
+              "PRJ-KAS-000013",
+              "PRJ-KAS-000014",
+              "PRJ-KAS-000015",
+              "PRJ-KAS-000016",
+              "PRJ-KAS-000017",
+              "PRJ-KAS-000018",
+              "PRJ-KAS-000019",
+              "PRJ-KAS-000020",
+              "PRJ-KAS-000021",
+              "PRJ-KAS-000022",
+              "PRJ-KAS-000023",
+              "PRJ-KAS-000024",
+              "PRJ-KAS-000025",
+              "PRJ-KAS-000026",
+              "PRJ-KAS-000027",
+              "PRJ-KAS-000028",
+              "PRJ-KAS-000029",
+              "PRJ-KAS-000030",
+              "PRJ-KAS-000031",
+              "PRJ-KAS-000032",
+              "PRJ-KAS-000033",
+              "PRJ-KAS-000034",
+              "PRJ-KAS-000035",
+              "PRJ-KAS-000036",
+              "PRJ-KAS-000037",
+              "PRJ-KAS-000038",
+              "PRJ-KAS-000039",
+              "PRJ-KAS-000040",
+              "PRJ-KAS-000041",
+              "PRJ-KAS-000042",
+              "PRJ-KAS-000043",
+              "PRJ-KAS-000044",
+              "PRJ-KAS-000045",
+              "PRJ-KAS-000046",
+              "PRJ-KAS-000047",
+              "PRJ-KAS-000048",
+              "PRJ-KAS-000049",
+              "PRJ-KAS-000050",
+              "PRJ-KAS-000051",
+              "PRJ-KAS-000052",
+              "PRJ-KAS-000053",
+              "PRJ-KAS-000054",
+              "PRJ-KAS-000055",
+              "PRJ-KAS-000056",
+              "PRJ-KAS-000057",
+              "PRJ-KAS-000058",
+              "PRJ-KAS-000059",
+              "PRJ-KAS-000060",
+              "PRJ-KAS-000061",
+              "PRJ-KAS-000062",
+              "PRJ-KAS-000063",
+              "PRJ-KAS-000064",
+              "PRJ-KAS-000065",
+              "PRJ-KAS-000066",
+              "PRJ-KAS-000067",
+              "PRJ-KAS-000068",
+              "PRJ-KAS-000069",
+              "PRJ-KAS-000070",
+              "PRJ-KAS-000071",
+              "PRJ-KAS-000072",
+              "PRJ-KAS-000073",
+              "PRJ-KAS-000074",
+              "PRJ-KAS-000075",
+              "PRJ-KAS-000076",
+              "PRJ-KAS-000077",
+              "PRJ-KAS-000078",
+              "PRJ-KAS-000079",
+              "PRJ-KAS-000080",
+              "PRJ-KAS-000081",
+              "PRJ-KAS-000082",
+              "PRJ-KAS-000083",
+              "PRJ-KAS-000084",
+              "PRJ-KAS-000085",
+              "PRJ-KAS-000086",
+              "PRJ-KAS-000087",
+              "PRJ-KAS-000088",
+              "PRJ-KAS-000089",
+              "PRJ-KAS-000090",
+              "PRJ-KAS-000091",
+              "PRJ-KAS-000092",
+              "PRJ-KAS-000093",
+              "PRJ-KAS-000094",
+              "PRJ-KAS-000095",
+              "PRJ-KAS-000096",
+              "PRJ-KAS-000097",
+              "PRJ-KAS-000098",
+              "PRJ-KAS-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Kashiwazaki Hybrid-Wind Unit 9",
+              "Kashiwazaki Wind Unit 4",
+              "Kashiwazaki Solar Unit 7",
+              "Kashiwazaki Hybrid Unit 8",
+              "Kashiwazaki Hybrid-Solar Unit 1",
+              "Kashiwazaki Hybrid-Solar Unit 3",
+              "Kashiwazaki Wind Unit 9",
+              "Kashiwazaki Hybrid-Wind Unit 2",
+              "Kashiwazaki Solar Unit 6",
+              "Kashiwazaki Solar Unit 3",
+              "Kashiwazaki Wind Unit 3",
+              "Kashiwazaki Wind Unit 5",
+              "Kashiwazaki Solar Unit 1",
+              "Kashiwazaki Solar Unit 5",
+              "Kashiwazaki Hybrid-Solar Unit 8",
+              "Kashiwazaki Hybrid-Solar Unit 2",
+              "Kashiwazaki Wind Unit 7",
+              "Kashiwazaki Hybrid-Solar Unit 6",
+              "Kashiwazaki Hybrid-Solar Unit 4",
+              "Kashiwazaki Solar Unit 8",
+              "Kashiwazaki Hybrid Unit 7",
+              "Kashiwazaki Hybrid-Wind Unit 5",
+              "Kashiwazaki Hybrid Unit 3",
+              "Kashiwazaki Hybrid-Wind Unit 1",
+              "Kashiwazaki Hybrid-Wind Unit 6",
+              "Kashiwazaki Hybrid-Solar Unit 9",
+              "Kashiwazaki Hybrid Unit 2",
+              "Kashiwazaki Wind Unit 8",
+              "Kashiwazaki Solar Unit 9",
+              "Kashiwazaki Hybrid Unit 9",
+              "Kashiwazaki Hybrid-Solar Unit 7",
+              "Kashiwazaki Solar Unit 4",
+              "Kashiwazaki Hybrid Unit 4",
+              "Kashiwazaki Hybrid Unit 5",
+              "Kashiwazaki Hybrid-Wind Unit 8",
+              "Kashiwazaki Hybrid-Wind Unit 3",
+              "Kashiwazaki Hybrid Unit 6",
+              "Kashiwazaki Hybrid-Solar Unit 5",
+              "Kashiwazaki Hybrid-Wind Unit 7",
+              "Kashiwazaki Wind Unit 1",
+              "Kashiwazaki Wind Unit 2",
+              "Kashiwazaki Hybrid-Wind Unit 4",
+              "Kashiwazaki Hybrid Unit 1",
+              "Kashiwazaki Solar Unit 2",
+              "Kashiwazaki Wind Unit 6"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Kashiwazaki"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Expansion",
+              "Greenfield",
+              "Brownfield",
+              "Standard",
+              "Strategic"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Tata Power",
+              "Suzlon",
+              "GE Power",
+              "Siemens",
+              "L&T",
+              "Sterling & Wilson",
+              "Adani Infra"
+            ]
+          },
+          "material": {
+            "values": [
+              "Wind Turbines",
+              "PV Modules"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "Ordered",
+              "At Site",
+              "Installed",
+              "In Transit",
+              "Customs Cleared"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Pending",
+              "Advance Paid",
+              "Fully Paid",
+              "Milestone 1 Cleared",
+              "Milestone 2 Cleared"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "palo_verde": {
+      "mtime": 1781149675.763107,
+      "schema": {
+        "tables": [
+          "metrics_palo_verde"
+        ],
+        "primary_table": "metrics_palo_verde",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-PAL-000000",
+              "PRJ-PAL-000001",
+              "PRJ-PAL-000002",
+              "PRJ-PAL-000003",
+              "PRJ-PAL-000004",
+              "PRJ-PAL-000005",
+              "PRJ-PAL-000006",
+              "PRJ-PAL-000007",
+              "PRJ-PAL-000008",
+              "PRJ-PAL-000009",
+              "PRJ-PAL-000010",
+              "PRJ-PAL-000011",
+              "PRJ-PAL-000012",
+              "PRJ-PAL-000013",
+              "PRJ-PAL-000014",
+              "PRJ-PAL-000015",
+              "PRJ-PAL-000016",
+              "PRJ-PAL-000017",
+              "PRJ-PAL-000018",
+              "PRJ-PAL-000019",
+              "PRJ-PAL-000020",
+              "PRJ-PAL-000021",
+              "PRJ-PAL-000022",
+              "PRJ-PAL-000023",
+              "PRJ-PAL-000024",
+              "PRJ-PAL-000025",
+              "PRJ-PAL-000026",
+              "PRJ-PAL-000027",
+              "PRJ-PAL-000028",
+              "PRJ-PAL-000029",
+              "PRJ-PAL-000030",
+              "PRJ-PAL-000031",
+              "PRJ-PAL-000032",
+              "PRJ-PAL-000033",
+              "PRJ-PAL-000034",
+              "PRJ-PAL-000035",
+              "PRJ-PAL-000036",
+              "PRJ-PAL-000037",
+              "PRJ-PAL-000038",
+              "PRJ-PAL-000039",
+              "PRJ-PAL-000040",
+              "PRJ-PAL-000041",
+              "PRJ-PAL-000042",
+              "PRJ-PAL-000043",
+              "PRJ-PAL-000044",
+              "PRJ-PAL-000045",
+              "PRJ-PAL-000046",
+              "PRJ-PAL-000047",
+              "PRJ-PAL-000048",
+              "PRJ-PAL-000049",
+              "PRJ-PAL-000050",
+              "PRJ-PAL-000051",
+              "PRJ-PAL-000052",
+              "PRJ-PAL-000053",
+              "PRJ-PAL-000054",
+              "PRJ-PAL-000055",
+              "PRJ-PAL-000056",
+              "PRJ-PAL-000057",
+              "PRJ-PAL-000058",
+              "PRJ-PAL-000059",
+              "PRJ-PAL-000060",
+              "PRJ-PAL-000061",
+              "PRJ-PAL-000062",
+              "PRJ-PAL-000063",
+              "PRJ-PAL-000064",
+              "PRJ-PAL-000065",
+              "PRJ-PAL-000066",
+              "PRJ-PAL-000067",
+              "PRJ-PAL-000068",
+              "PRJ-PAL-000069",
+              "PRJ-PAL-000070",
+              "PRJ-PAL-000071",
+              "PRJ-PAL-000072",
+              "PRJ-PAL-000073",
+              "PRJ-PAL-000074",
+              "PRJ-PAL-000075",
+              "PRJ-PAL-000076",
+              "PRJ-PAL-000077",
+              "PRJ-PAL-000078",
+              "PRJ-PAL-000079",
+              "PRJ-PAL-000080",
+              "PRJ-PAL-000081",
+              "PRJ-PAL-000082",
+              "PRJ-PAL-000083",
+              "PRJ-PAL-000084",
+              "PRJ-PAL-000085",
+              "PRJ-PAL-000086",
+              "PRJ-PAL-000087",
+              "PRJ-PAL-000088",
+              "PRJ-PAL-000089",
+              "PRJ-PAL-000090",
+              "PRJ-PAL-000091",
+              "PRJ-PAL-000092",
+              "PRJ-PAL-000093",
+              "PRJ-PAL-000094",
+              "PRJ-PAL-000095",
+              "PRJ-PAL-000096",
+              "PRJ-PAL-000097",
+              "PRJ-PAL-000098",
+              "PRJ-PAL-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Palo Verde Hybrid Unit 8",
+              "Palo Verde Hybrid Unit 1",
+              "Palo Verde Wind Unit 6",
+              "Palo Verde Wind Unit 9",
+              "Palo Verde Hybrid-Wind Unit 2",
+              "Palo Verde Solar Unit 9",
+              "Palo Verde Hybrid-Wind Unit 3",
+              "Palo Verde Hybrid Unit 3",
+              "Palo Verde Hybrid-Solar Unit 8",
+              "Palo Verde Wind Unit 4",
+              "Palo Verde Hybrid-Wind Unit 4",
+              "Palo Verde Solar Unit 2",
+              "Palo Verde Hybrid Unit 6",
+              "Palo Verde Hybrid-Wind Unit 1",
+              "Palo Verde Solar Unit 8",
+              "Palo Verde Hybrid-Solar Unit 4",
+              "Palo Verde Hybrid-Solar Unit 1",
+              "Palo Verde Hybrid-Solar Unit 6",
+              "Palo Verde Wind Unit 7",
+              "Palo Verde Hybrid-Solar Unit 9",
+              "Palo Verde Hybrid-Wind Unit 5",
+              "Palo Verde Hybrid-Solar Unit 3",
+              "Palo Verde Hybrid-Solar Unit 2",
+              "Palo Verde Solar Unit 5",
+              "Palo Verde Hybrid Unit 2",
+              "Palo Verde Hybrid Unit 4",
+              "Palo Verde Hybrid Unit 5",
+              "Palo Verde Solar Unit 3",
+              "Palo Verde Hybrid-Solar Unit 7",
+              "Palo Verde Wind Unit 5",
+              "Palo Verde Hybrid-Wind Unit 8",
+              "Palo Verde Wind Unit 8",
+              "Palo Verde Hybrid Unit 9",
+              "Palo Verde Hybrid Unit 7",
+              "Palo Verde Solar Unit 6",
+              "Palo Verde Solar Unit 1",
+              "Palo Verde Solar Unit 4",
+              "Palo Verde Hybrid-Wind Unit 9",
+              "Palo Verde Wind Unit 3",
+              "Palo Verde Solar Unit 7",
+              "Palo Verde Wind Unit 1",
+              "Palo Verde Hybrid-Wind Unit 7",
+              "Palo Verde Wind Unit 2",
+              "Palo Verde Hybrid-Solar Unit 5",
+              "Palo Verde Hybrid-Wind Unit 6"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Palo verde"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Brownfield",
+              "Expansion",
+              "Standard",
+              "Strategic",
+              "Greenfield"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Tata Power",
+              "L&T",
+              "Adani Infra",
+              "Siemens",
+              "Sterling & Wilson",
+              "Suzlon",
+              "GE Power"
+            ]
+          },
+          "material": {
+            "values": [
+              "Wind Turbines",
+              "PV Modules"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "Installed",
+              "Customs Cleared",
+              "At Site",
+              "Ordered",
+              "In Transit"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Milestone 2 Cleared",
+              "Pending",
+              "Milestone 1 Cleared",
+              "Advance Paid",
+              "Fully Paid"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "three_mile_island": {
+      "mtime": 1781149658.0720158,
+      "schema": {
+        "tables": [
+          "metrics_three_mile_island"
+        ],
+        "primary_table": "metrics_three_mile_island",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-THR-000000",
+              "PRJ-THR-000001",
+              "PRJ-THR-000002",
+              "PRJ-THR-000003",
+              "PRJ-THR-000004",
+              "PRJ-THR-000005",
+              "PRJ-THR-000006",
+              "PRJ-THR-000007",
+              "PRJ-THR-000008",
+              "PRJ-THR-000009",
+              "PRJ-THR-000010",
+              "PRJ-THR-000011",
+              "PRJ-THR-000012",
+              "PRJ-THR-000013",
+              "PRJ-THR-000014",
+              "PRJ-THR-000015",
+              "PRJ-THR-000016",
+              "PRJ-THR-000017",
+              "PRJ-THR-000018",
+              "PRJ-THR-000019",
+              "PRJ-THR-000020",
+              "PRJ-THR-000021",
+              "PRJ-THR-000022",
+              "PRJ-THR-000023",
+              "PRJ-THR-000024",
+              "PRJ-THR-000025",
+              "PRJ-THR-000026",
+              "PRJ-THR-000027",
+              "PRJ-THR-000028",
+              "PRJ-THR-000029",
+              "PRJ-THR-000030",
+              "PRJ-THR-000031",
+              "PRJ-THR-000032",
+              "PRJ-THR-000033",
+              "PRJ-THR-000034",
+              "PRJ-THR-000035",
+              "PRJ-THR-000036",
+              "PRJ-THR-000037",
+              "PRJ-THR-000038",
+              "PRJ-THR-000039",
+              "PRJ-THR-000040",
+              "PRJ-THR-000041",
+              "PRJ-THR-000042",
+              "PRJ-THR-000043",
+              "PRJ-THR-000044",
+              "PRJ-THR-000045",
+              "PRJ-THR-000046",
+              "PRJ-THR-000047",
+              "PRJ-THR-000048",
+              "PRJ-THR-000049",
+              "PRJ-THR-000050",
+              "PRJ-THR-000051",
+              "PRJ-THR-000052",
+              "PRJ-THR-000053",
+              "PRJ-THR-000054",
+              "PRJ-THR-000055",
+              "PRJ-THR-000056",
+              "PRJ-THR-000057",
+              "PRJ-THR-000058",
+              "PRJ-THR-000059",
+              "PRJ-THR-000060",
+              "PRJ-THR-000061",
+              "PRJ-THR-000062",
+              "PRJ-THR-000063",
+              "PRJ-THR-000064",
+              "PRJ-THR-000065",
+              "PRJ-THR-000066",
+              "PRJ-THR-000067",
+              "PRJ-THR-000068",
+              "PRJ-THR-000069",
+              "PRJ-THR-000070",
+              "PRJ-THR-000071",
+              "PRJ-THR-000072",
+              "PRJ-THR-000073",
+              "PRJ-THR-000074",
+              "PRJ-THR-000075",
+              "PRJ-THR-000076",
+              "PRJ-THR-000077",
+              "PRJ-THR-000078",
+              "PRJ-THR-000079",
+              "PRJ-THR-000080",
+              "PRJ-THR-000081",
+              "PRJ-THR-000082",
+              "PRJ-THR-000083",
+              "PRJ-THR-000084",
+              "PRJ-THR-000085",
+              "PRJ-THR-000086",
+              "PRJ-THR-000087",
+              "PRJ-THR-000088",
+              "PRJ-THR-000089",
+              "PRJ-THR-000090",
+              "PRJ-THR-000091",
+              "PRJ-THR-000092",
+              "PRJ-THR-000093",
+              "PRJ-THR-000094",
+              "PRJ-THR-000095",
+              "PRJ-THR-000096",
+              "PRJ-THR-000097",
+              "PRJ-THR-000098",
+              "PRJ-THR-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Three Mile Island Hybrid Unit 6",
+              "Three Mile Island Solar Unit 2",
+              "Three Mile Island Hybrid Unit 5",
+              "Three Mile Island Hybrid-Solar Unit 5",
+              "Three Mile Island Solar Unit 8",
+              "Three Mile Island Hybrid-Solar Unit 7",
+              "Three Mile Island Wind Unit 1",
+              "Three Mile Island Hybrid-Solar Unit 9",
+              "Three Mile Island Hybrid-Wind Unit 5",
+              "Three Mile Island Hybrid-Solar Unit 1",
+              "Three Mile Island Wind Unit 8",
+              "Three Mile Island Hybrid-Solar Unit 8",
+              "Three Mile Island Hybrid Unit 8",
+              "Three Mile Island Hybrid-Wind Unit 4",
+              "Three Mile Island Solar Unit 3",
+              "Three Mile Island Hybrid Unit 7",
+              "Three Mile Island Wind Unit 5",
+              "Three Mile Island Solar Unit 1",
+              "Three Mile Island Wind Unit 9",
+              "Three Mile Island Solar Unit 7",
+              "Three Mile Island Hybrid-Wind Unit 8",
+              "Three Mile Island Hybrid-Solar Unit 3",
+              "Three Mile Island Wind Unit 3",
+              "Three Mile Island Hybrid Unit 4",
+              "Three Mile Island Hybrid-Solar Unit 2",
+              "Three Mile Island Hybrid-Wind Unit 2",
+              "Three Mile Island Hybrid Unit 1",
+              "Three Mile Island Hybrid-Wind Unit 7",
+              "Three Mile Island Hybrid Unit 2",
+              "Three Mile Island Wind Unit 2",
+              "Three Mile Island Hybrid-Wind Unit 3",
+              "Three Mile Island Hybrid-Wind Unit 6",
+              "Three Mile Island Solar Unit 9",
+              "Three Mile Island Solar Unit 4",
+              "Three Mile Island Hybrid Unit 9",
+              "Three Mile Island Solar Unit 6",
+              "Three Mile Island Hybrid-Solar Unit 4",
+              "Three Mile Island Wind Unit 7",
+              "Three Mile Island Hybrid-Solar Unit 6",
+              "Three Mile Island Wind Unit 4",
+              "Three Mile Island Hybrid-Wind Unit 9",
+              "Three Mile Island Wind Unit 6",
+              "Three Mile Island Hybrid-Wind Unit 1",
+              "Three Mile Island Hybrid Unit 3",
+              "Three Mile Island Solar Unit 5"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Three mile island"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Greenfield",
+              "Standard",
+              "Brownfield",
+              "Strategic",
+              "Expansion"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "Siemens",
+              "L&T",
+              "Tata Power",
+              "GE Power",
+              "Sterling & Wilson",
+              "Adani Infra",
+              "Suzlon"
+            ]
+          },
+          "material": {
+            "values": [
+              "Wind Turbines",
+              "PV Modules"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "In Transit",
+              "Ordered",
+              "At Site",
+              "Installed",
+              "Customs Cleared"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Advance Paid",
+              "Milestone 2 Cleared",
+              "Fully Paid",
+              "Pending",
+              "Milestone 1 Cleared"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    },
+    "vogtle": {
+      "mtime": 1781149736.5660262,
+      "schema": {
+        "tables": [
+          "metrics_vogtle"
+        ],
+        "primary_table": "metrics_vogtle",
+        "metrics": {
+          "capacity_mw": {
+            "column": "capacity_mw",
+            "type": "NUMERIC"
+          },
+          "budget_allocated": {
+            "column": "budget_allocated",
+            "type": "NUMERIC"
+          },
+          "budget_used": {
+            "column": "budget_used",
+            "type": "NUMERIC"
+          },
+          "budget_remaining": {
+            "column": "budget_remaining",
+            "type": "NUMERIC"
+          },
+          "revenue": {
+            "column": "revenue",
+            "type": "NUMERIC"
+          },
+          "completion_percentage": {
+            "column": "completion_percentage",
+            "type": "NUMERIC"
+          },
+          "delay_days": {
+            "column": "delay_days",
+            "type": "INTEGER"
+          }
+        },
+        "categoricals": {
+          "project_id": {
+            "values": [
+              "PRJ-VOG-000000",
+              "PRJ-VOG-000001",
+              "PRJ-VOG-000002",
+              "PRJ-VOG-000003",
+              "PRJ-VOG-000004",
+              "PRJ-VOG-000005",
+              "PRJ-VOG-000006",
+              "PRJ-VOG-000007",
+              "PRJ-VOG-000008",
+              "PRJ-VOG-000009",
+              "PRJ-VOG-000010",
+              "PRJ-VOG-000011",
+              "PRJ-VOG-000012",
+              "PRJ-VOG-000013",
+              "PRJ-VOG-000014",
+              "PRJ-VOG-000015",
+              "PRJ-VOG-000016",
+              "PRJ-VOG-000017",
+              "PRJ-VOG-000018",
+              "PRJ-VOG-000019",
+              "PRJ-VOG-000020",
+              "PRJ-VOG-000021",
+              "PRJ-VOG-000022",
+              "PRJ-VOG-000023",
+              "PRJ-VOG-000024",
+              "PRJ-VOG-000025",
+              "PRJ-VOG-000026",
+              "PRJ-VOG-000027",
+              "PRJ-VOG-000028",
+              "PRJ-VOG-000029",
+              "PRJ-VOG-000030",
+              "PRJ-VOG-000031",
+              "PRJ-VOG-000032",
+              "PRJ-VOG-000033",
+              "PRJ-VOG-000034",
+              "PRJ-VOG-000035",
+              "PRJ-VOG-000036",
+              "PRJ-VOG-000037",
+              "PRJ-VOG-000038",
+              "PRJ-VOG-000039",
+              "PRJ-VOG-000040",
+              "PRJ-VOG-000041",
+              "PRJ-VOG-000042",
+              "PRJ-VOG-000043",
+              "PRJ-VOG-000044",
+              "PRJ-VOG-000045",
+              "PRJ-VOG-000046",
+              "PRJ-VOG-000047",
+              "PRJ-VOG-000048",
+              "PRJ-VOG-000049",
+              "PRJ-VOG-000050",
+              "PRJ-VOG-000051",
+              "PRJ-VOG-000052",
+              "PRJ-VOG-000053",
+              "PRJ-VOG-000054",
+              "PRJ-VOG-000055",
+              "PRJ-VOG-000056",
+              "PRJ-VOG-000057",
+              "PRJ-VOG-000058",
+              "PRJ-VOG-000059",
+              "PRJ-VOG-000060",
+              "PRJ-VOG-000061",
+              "PRJ-VOG-000062",
+              "PRJ-VOG-000063",
+              "PRJ-VOG-000064",
+              "PRJ-VOG-000065",
+              "PRJ-VOG-000066",
+              "PRJ-VOG-000067",
+              "PRJ-VOG-000068",
+              "PRJ-VOG-000069",
+              "PRJ-VOG-000070",
+              "PRJ-VOG-000071",
+              "PRJ-VOG-000072",
+              "PRJ-VOG-000073",
+              "PRJ-VOG-000074",
+              "PRJ-VOG-000075",
+              "PRJ-VOG-000076",
+              "PRJ-VOG-000077",
+              "PRJ-VOG-000078",
+              "PRJ-VOG-000079",
+              "PRJ-VOG-000080",
+              "PRJ-VOG-000081",
+              "PRJ-VOG-000082",
+              "PRJ-VOG-000083",
+              "PRJ-VOG-000084",
+              "PRJ-VOG-000085",
+              "PRJ-VOG-000086",
+              "PRJ-VOG-000087",
+              "PRJ-VOG-000088",
+              "PRJ-VOG-000089",
+              "PRJ-VOG-000090",
+              "PRJ-VOG-000091",
+              "PRJ-VOG-000092",
+              "PRJ-VOG-000093",
+              "PRJ-VOG-000094",
+              "PRJ-VOG-000095",
+              "PRJ-VOG-000096",
+              "PRJ-VOG-000097",
+              "PRJ-VOG-000098",
+              "PRJ-VOG-000099"
+            ]
+          },
+          "project_name": {
+            "values": [
+              "Vogtle Solar Unit 7",
+              "Vogtle Hybrid Unit 3",
+              "Vogtle Hybrid-Solar Unit 6",
+              "Vogtle Wind Unit 4",
+              "Vogtle Wind Unit 2",
+              "Vogtle Hybrid Unit 9",
+              "Vogtle Solar Unit 3",
+              "Vogtle Hybrid-Solar Unit 1",
+              "Vogtle Solar Unit 1",
+              "Vogtle Hybrid-Solar Unit 9",
+              "Vogtle Hybrid Unit 1",
+              "Vogtle Hybrid Unit 4",
+              "Vogtle Hybrid-Wind Unit 7",
+              "Vogtle Solar Unit 8",
+              "Vogtle Hybrid-Solar Unit 3",
+              "Vogtle Hybrid-Solar Unit 8",
+              "Vogtle Hybrid Unit 6",
+              "Vogtle Hybrid-Solar Unit 4",
+              "Vogtle Hybrid-Solar Unit 5",
+              "Vogtle Wind Unit 7",
+              "Vogtle Hybrid-Solar Unit 7",
+              "Vogtle Solar Unit 5",
+              "Vogtle Solar Unit 6",
+              "Vogtle Hybrid-Wind Unit 2",
+              "Vogtle Hybrid-Wind Unit 4",
+              "Vogtle Wind Unit 1",
+              "Vogtle Wind Unit 3",
+              "Vogtle Solar Unit 4",
+              "Vogtle Solar Unit 9",
+              "Vogtle Hybrid-Solar Unit 2",
+              "Vogtle Wind Unit 6",
+              "Vogtle Hybrid Unit 2",
+              "Vogtle Hybrid-Wind Unit 5",
+              "Vogtle Hybrid-Wind Unit 9",
+              "Vogtle Wind Unit 5",
+              "Vogtle Hybrid Unit 8",
+              "Vogtle Hybrid-Wind Unit 6",
+              "Vogtle Wind Unit 8",
+              "Vogtle Hybrid Unit 7",
+              "Vogtle Wind Unit 9",
+              "Vogtle Hybrid-Wind Unit 1",
+              "Vogtle Hybrid-Wind Unit 8",
+              "Vogtle Hybrid Unit 5",
+              "Vogtle Hybrid-Wind Unit 3",
+              "Vogtle Solar Unit 2"
+            ]
+          },
+          "project_type": {
+            "values": [
+              "Hybrid",
+              "Hybrid-Solar",
+              "Hybrid-Wind",
+              "Solar",
+              "Wind"
+            ]
+          },
+          "location": {
+            "values": [
+              "Vogtle"
+            ]
+          },
+          "state": {
+            "values": [
+              "Gujarat",
+              "Karnataka",
+              "Maharashtra",
+              "Rajasthan",
+              "Tamil Nadu"
+            ]
+          },
+          "fy_year": {
+            "values": [
+              2020,
+              2021,
+              2022,
+              2023,
+              2024,
+              2025,
+              2026
+            ]
+          },
+          "category": {
+            "values": [
+              "Standard",
+              "Strategic",
+              "Expansion",
+              "Greenfield",
+              "Brownfield"
+            ]
+          },
+          "contractor_name": {
+            "values": [
+              "L&T",
+              "Siemens",
+              "Suzlon",
+              "Sterling & Wilson",
+              "Tata Power",
+              "GE Power",
+              "Adani Infra"
+            ]
+          },
+          "material": {
+            "values": [
+              "PV Modules",
+              "Wind Turbines"
+            ]
+          },
+          "material_status": {
+            "values": [
+              "Installed",
+              "Ordered",
+              "Customs Cleared",
+              "At Site",
+              "In Transit"
+            ]
+          },
+          "contractor_payment_status": {
+            "values": [
+              "Fully Paid",
+              "Pending",
+              "Milestone 1 Cleared",
+              "Milestone 2 Cleared",
+              "Advance Paid"
+            ]
+          },
+          "remarks": {
+            "values": [
+              "Operational data update"
+            ]
+          }
+        },
+        "temporal": {
+          "record_date": {
+            "type": "datetime"
+          },
+          "fy_year": {
+            "type": "year"
+          },
+          "scheduled_comm_date": {
+            "type": "datetime"
+          },
+          "expected_comm_date": {
+            "type": "datetime"
+          },
+          "actual_comm_date": {
+            "type": "datetime"
+          }
+        }
+      }
+    }
+  }
+}

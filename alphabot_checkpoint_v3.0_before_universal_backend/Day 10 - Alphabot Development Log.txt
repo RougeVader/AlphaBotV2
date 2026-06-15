@@ -1,0 +1,21 @@
+Alphabot v2.1 Enterprise: Project Update – Development Log Day 10
+
+Date: June 11, 2026
+
+To: Senior Leadership Team
+From: Alphabot Engineering Lead
+Subject: Day 10 Progress: Enterprise Hardening & User Experience (UX)
+
+---------------------------------------------------------------------------------------------------
+
+Key Achievements & Deliverables - Day 10: Enterprise Hardening & User Experience (UX)
+
+*   Comprehensive Zero-Trust Validation: Hardened the backend with a "Zero-Trust Guard." If a query mentions an entity (e.g., site, project type) that the AI fails to map to a filter, the system now explicitly **blocks execution** and requests clarification, permanently eliminating misleading "whole-table" results.
+*   Five Robustness Layers (Crash-Resistance):
+    1.  Visual Input Diagnostics: The "Logic Diagnostics" bar now highlights `UNKNOWN` tokens in red, and a dynamic warning banner guides users toward recognized terms, improving query formulation.
+    2.  Fault Isolation (React Error Boundaries): Implemented error boundaries around core UI components (Visualization, AI Insights, Metadata Blueprint). Component-level failures now gracefully degrade with recovery options, preventing full application crashes.
+    3.  Intelligent Timeout Guards: Integrated an `AbortController` with an extended **30-second timeout** for all API requests. This prevents the UI from freezing on long-running queries and ensures the timer freezes at the final value upon timeout.
+    4.  Dynamic Visualization & Tabular Fallback: The charting component now automatically adapts to data, presenting comparative bar charts or line graphs. A new, persistent bidirectional "Chart-to-Table" toggle ensures data is always accessible, even when complex graphs cannot be rendered.
+    5.  Multi-Site Targeted Comparisons: Enabled precise multi-site querying. The system now correctly identifies and queries subsets of requested locations (e.g., "Diablo Canyon and Grand Gulf"), automatically triggering comparative visualizations for these specific selections.
+*   Analytical Growth Engine: Programmed the backend to natively calculate year-over-year **% Growth** and comparative site analytics, providing more advanced financial insights.
+*   Environment Automation: Developed `stop.bat` to complement `start.bat`, providing a clean, one-click shutdown for the entire Alphabot stack.

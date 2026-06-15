@@ -1,0 +1,29 @@
+# databases
+*.db
+
+
+# frontend dependencies & build
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.pnp
+frontend/.pnp.*
+frontend/.yarn/*
+frontend/*.tsbuildinfo
+
+# python dependencies & build
+backend/__pycache__/
+backend/.pytest_cache/
+backend/*.pyc
+backend/.venv/
+backend/venv/
+
+# env files
+.env*
+
+# system & IDE
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db

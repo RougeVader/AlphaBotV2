@@ -1,0 +1,18 @@
+{
+  "databases": {
+    "darlington":   "sqlite:///darlington.db",
+    "palo_verde":   "sqlite:///palo_verde.db",
+    "grand_gulf":   "sqlite:///grand_gulf.db",
+    "hinkley_point":"sqlite:///hinkley_point.db",
+    "kashiwazaki":  "sqlite:///kashiwazaki.db",
+    "diablo_canyon":"sqlite:///diablo_canyon.db",
+    "three_mile_island":"sqlite:///three_mile_island.db",
+    "vogtle":       "sqlite:///vogtle.db"
+  },
+  "ignore": ["benchmark_test", "market_intel"],
+  "schema_options": {
+    "categorical_sample_limit": 50,
+    "project_id_sample_limit": 100,
+    "metric_exclude_patterns": ["_id", "id$"]
+  }
+}
