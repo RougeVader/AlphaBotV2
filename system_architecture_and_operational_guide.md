@@ -231,3 +231,32 @@ C:\Users\Ayush Khandwe\Desktop\New folder> stop.bat
 * **Symptoms**: Running `pytest` throws a `PytestCacheWarning: cache could not write path... Permission Denied`.
 * **Cause**: Python test execution runs under restricted permissions on Windows or conflicts with active processes locking the pytest cache folder.
 * **Fix**: Run tests by specifying the target file: `pytest test_main.py` or ignore cache writes.
+
+---
+
+## 9. System & Design FAQ (For Senior Review)
+
+#### Q1: Where is the schema introspection cache stored?
+**A1**: The backend schema cache is saved locally at [backend/metadata_cache.json](file:///c:/Users/Ayush%20Khandwe/Desktop/New%20folder/backend/metadata_cache.json). It persists introspected metrics, categoricals, and temporal column keys for all discovered databases along with their modification timestamps (`mtime`).
+
+#### Q2: How does the backend detect schema drift or database modifications?
+**A2**: On startup and on incoming queries, the `MetadataRegistry` compares the recorded `mtime` values inside the cache with the actual database files on disk. If any database's file modification timestamp changes or if `connections.json` is modified, the cache is invalidated, and the introspector dynamically re-scans the databases, updating the cache file automatically.
+
+#### Q3: Where is the client-side search history cache stored?
+**A3**: The search history is cached inside the client's browser `localStorage` under the key `'alphabot_recents'`.
+
+#### Q4: Why are raw project rows stripped from recent queries before writing to localStorage?
+**A4**: Browsers restrict `localStorage` to a 5MB quota limit. Storing raw data listings (which can contain thousands of records with dozens of keys) under `alphabot_recents` leads to immediate `QuotaExceededError` runtime crashes. The client strips out the heavy `results` array on serialization to keep history size minimal (under 1KB). Active-session results remain cached in React state for instant loading, and reloads fall back to re-querying the high-speed backend on click.
+
+#### Q5: How does the hybrid query parser bypass the local LLM fallback?
+**A5**: The client's tokenizer uses a prefix tree (`MetadataTrie`) to match dimensions/metrics, and regex patterns (`PROJECT_ID_REGEX`, `PROJECT_NAME_REGEX`) to identify direct resource drilldowns. If the query represents a project profile or a listing operation (like `LIST` or `SHOW`) with no unrecognized terms, the parser sets `fallback_required = false` and skips the LLM, resolving the query locally in sub-10ms.
+
+#### Q6: How is database-engine independence achieved in the SQL compiler?
+**A6**: The backend query generator translates raw SQL templates depending on the database dialect of the connection engine:
+- Positional `?` parameter bindings are converted to named parameters (e.g. `:p0`, `:p1`) for PostgreSQL/MySQL.
+- SQLite-specific date formatting functions like `strftime('%Y-%m', col)` are parsed and translated to SQL standard equivalents like `to_char(col, 'YYYY-MM')` (PostgreSQL) or `DATE_FORMAT(col, '%Y-%m')` (MySQL).
+- SQLite-specific case collations like `COLLATE NOCASE` are stripped out for engines that handle case-insensitivity by default.
+
+#### Q7: How are database execution exceptions isolated during parallel federated runs?
+**A7**: Individual database connection queries are wrapped inside an async function. If a database file is locked, corrupt, or offline, the function logs the error and returns an empty list `[]` instead of raising the exception. `asyncio.gather` successfully resolves with the rest of the healthy databases, ensuring partial federated availability rather than failing the entire request.
+
