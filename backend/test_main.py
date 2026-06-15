@@ -391,6 +391,37 @@ def test_federated_query_processor_dimensional_comparison(mock_run_query, client
     assert data["results"][0] == {"label": 2020, "comparison_group": "Gujarat", "revenue": len(POWER_PLANTS) * 1000}
     assert data["results"][1] == {"label": 2020, "comparison_group": "Rajasthan", "revenue": len(POWER_PLANTS) * 1200}
 
+def test_build_federated_query_parts_row_retrieval_ops():
+    bp = Blueprint(operation="LIST", metrics=[], filters=[])
+    where, metrics, params, sql_select, sql_group_by, sql_order_by = build_federated_query_parts(bp, "list projects")
+    assert sql_select == "*"
+    assert metrics == []
+
+def test_build_federated_query_parts_row_retrieval_keywords():
+    bp = Blueprint(operation="SUM", metrics=[], filters=[])
+    where, metrics, params, sql_select, sql_group_by, sql_order_by = build_federated_query_parts(bp, "what are the projects with GE Power")
+    assert sql_select == "*"
+    assert metrics == []
+
+@patch('main.run_query_on_single_db')
+def test_row_retrieval_endpoint(mock_run_query, client):
+    mock_run_query.return_value = [{"project_id": "PRJ-DAR-001", "contractor_name": "GE Power"}]
+    payload = {
+        "raw_query": "what are the projects with GE Power",
+        "blueprint": {
+            "operation": "LIST",
+            "metrics": [],
+            "filters": [{"column": "contractor_name", "value": "GE Power"}]
+        }
+    }
+    response = client.post("/api/query", json=payload)
+    data = response.json()
+    assert response.status_code == 200
+    assert data["status"] == "success"
+    assert data["unit"] == "RawData"
+    assert data["results"][0]["project_id"] == "PRJ-DAR-001"
+
+
 
 
 

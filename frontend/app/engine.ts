@@ -215,8 +215,9 @@ export function buildBlueprint(rawQuery: string): QueryBlueprint {
     }
 
     // STRICT FALLBACK LOGIC
-    const isProfileQuery = blueprint.blueprint.filters.some(f => f.column === 'project_id' || f.column === 'project_name');
-    const hasMetric = blueprint.blueprint.metrics.length > 0 || isProfileQuery;
+    const isRowRetrievalQuery = blueprint.blueprint.filters.some(f => f.column === 'project_id' || f.column === 'project_name') ||
+        (blueprint.blueprint.operation && ['LIST', 'SHOW', 'FIND', 'WHICH', 'FULL_DETAILS'].includes(blueprint.blueprint.operation.toUpperCase()));
+    const hasMetric = blueprint.blueprint.metrics.length > 0 || isRowRetrievalQuery;
     const unknownTokens = tokens.filter(t => {
         if (t.type !== 'UNKNOWN') return false;
         if (matchedProjectName && matchedProjectName.toLowerCase().includes(t.word.toLowerCase())) return false;

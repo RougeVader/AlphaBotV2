@@ -47,18 +47,17 @@ function LiveKpiStrip({
     valid.length === 2 ? 'grid-cols-2' :
     valid.length === 3 ? 'grid-cols-3' : 'grid-cols-4';
 
-  // kpis object present + not loading means a completed result is available
-  const hasResults = !isLoading && kpis !== null;
-
   return (
     <div className={`grid gap-4 ${gridClass} px-6 pt-6 pb-2 flex-shrink-0`}>
       {valid.map((metric, idx) => {
         const val = kpis?.[metric];
-        const formatted = (hasResults && val != null) ? formatKpiValue(val, metric) : null;
+        const formatted = (val != null) ? formatKpiValue(val, metric) : null;
         return (
           <div
             key={metric}
-            className="kpi-card-mount bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 shadow-sm rounded-2xl p-5 hover:shadow-md transition-shadow"
+            className={`kpi-card-mount bg-white dark:bg-slate-900 border border-gray-100 dark:border-slate-800 shadow-sm rounded-2xl p-5 hover:shadow-md transition-all duration-200 ${
+              isLoading ? 'opacity-70 scale-[0.995]' : ''
+            }`}
             style={{ animationDelay: `${idx * 55}ms`, animationFillMode: 'both' }}
           >
             <p className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider mb-2">
@@ -69,7 +68,9 @@ function LiveKpiStrip({
               /* Value slides up once results arrive — key change forces re-animation */
               <p
                 key={`${metric}-${formatted}`}
-                className="kpi-value-reveal text-2xl font-extrabold text-gray-900 dark:text-slate-50 tracking-tight"
+                className={`kpi-value-reveal text-2xl font-extrabold text-gray-900 dark:text-slate-50 tracking-tight ${
+                  isLoading ? 'animate-pulse' : ''
+                }`}
               >
                 {formatted}
               </p>

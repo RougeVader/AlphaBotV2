@@ -380,7 +380,7 @@ async def run_query_on_single_db(plant: str, sql: str, params: tuple) -> List[Di
         logger.error(f"Query Error on {plant}: {e}")
         return []
 
-def build_federated_query_parts(bp: Blueprint) -> (str, List[str], tuple, str, str, str):
+def build_federated_query_parts(bp: Blueprint, raw_query: str = "") -> (str, List[str], tuple, str, str, str):
     registry = MetadataRegistry.get_instance()
     where_clauses, params = [], []
     valid_dims = list(registry.categoricals.keys())
@@ -489,12 +489,32 @@ def build_federated_query_parts(bp: Blueprint) -> (str, List[str], tuple, str, s
                 where_clauses.append(f"{year_col} IN ({placeholders})")
                 params.extend(years_val)
 
-    # Detect profile request
-    is_profile_request = ('project_id' in col_to_filters or 'project_name' in col_to_filters) and not bp.metrics
-    
-    # Allow empty metric_cols ONLY IF is_profile_request is true
+    # Detect row-retrieval request
+    is_row_retrieval = False
+    row_retrieval_ops = {"LIST", "SHOW", "FIND", "WHICH", "FULL_DETAILS"}
+    op_upper = bp.operation.upper() if bp.operation else ""
+    if op_upper in row_retrieval_ops:
+        is_row_retrieval = True
+    if raw_query:
+        retrieval_terms = {"project", "projects", "list", "show", "find", "which", "details", "records", "rows", "contractor", "contractors"}
+        query_words = set(re.findall(r'\b\w+\b', raw_query.lower()))
+        has_retrieval_term = not query_words.isdisjoint(retrieval_terms)
+        has_explicit_metric = False
+        for m in registry.metrics:
+            m_clean = m.replace('_', ' ')
+            if m_clean in raw_query.lower():
+                has_explicit_metric = True
+                break
+        if bp.metrics:
+            has_explicit_metric = True
+        if has_retrieval_term and not has_explicit_metric:
+            is_row_retrieval = True
+    if ('project_id' in col_to_filters or 'project_name' in col_to_filters) and not bp.metrics:
+        is_row_retrieval = True
+
+    # Allow empty metric_cols ONLY IF is_row_retrieval is true
     metric_cols = [m for m in bp.metrics if m in registry.metrics]
-    if not metric_cols and not is_profile_request:
+    if not metric_cols and not is_row_retrieval:
         metric_cols = ["revenue"]
 
     sql_group_by, sql_order_by, group_col = "", "", None
@@ -506,7 +526,7 @@ def build_federated_query_parts(bp: Blueprint) -> (str, List[str], tuple, str, s
             comparison_col = col
             break
 
-    if is_profile_request:
+    if is_row_retrieval:
         sql_select = "*"
     else:
         op = bp.operation.upper() if bp.operation else "SUM"
@@ -757,7 +777,7 @@ async def federated_query_processor(bp: Blueprint, raw_query: str, parsing_metad
         if not plants_to_query:
             plants_to_query = POWER_PLANTS
 
-    where_str, metric_cols, params, sql_sel, sql_grp, sql_ord = build_federated_query_parts(bp)
+    where_str, metric_cols, params, sql_sel, sql_grp, sql_ord = build_federated_query_parts(bp, raw_query)
     
     # Detect comparison_col
     valid_dims = list(registry.categoricals.keys())
@@ -795,13 +815,34 @@ async def federated_query_processor(bp: Blueprint, raw_query: str, parsing_metad
     else:
         force_comparison = is_across_sites or is_multi_site
 
-    # 3. Detect Project Profile request
+    # 3. Detect Row-Retrieval request
+    is_row_retrieval = False
+    row_retrieval_ops = {"LIST", "SHOW", "FIND", "WHICH", "FULL_DETAILS"}
+    op_upper = bp.operation.upper() if bp.operation else ""
+    if op_upper in row_retrieval_ops:
+        is_row_retrieval = True
+    if raw_query:
+        retrieval_terms = {"project", "projects", "list", "show", "find", "which", "details", "records", "rows", "contractor", "contractors"}
+        query_words = set(re.findall(r'\b\w+\b', raw_query.lower()))
+        has_retrieval_term = not query_words.isdisjoint(retrieval_terms)
+        has_explicit_metric = False
+        for m in registry.metrics:
+            m_clean = m.replace('_', ' ')
+            if m_clean in raw_query.lower():
+                has_explicit_metric = True
+                break
+        if bp.metrics:
+            has_explicit_metric = True
+        if has_retrieval_term and not has_explicit_metric:
+            is_row_retrieval = True
+            
     project_id_filter = next((f['value'] for f in bp.filters if f['column'] == 'project_id'), None)
     project_name_filter = next((f['value'] for f in bp.filters if f['column'] == 'project_name'), None)
-    is_profile_request = (project_id_filter is not None or project_name_filter is not None) and not bp.metrics
+    if (project_id_filter is not None or project_name_filter is not None) and not bp.metrics:
+        is_row_retrieval = True
     
-    # Force full row retrieval for Project Profile requests
-    if is_profile_request:
+    # Force full row retrieval for Row-Retrieval requests
+    if is_row_retrieval:
         sql = f"SELECT * FROM {{table_name}} {'WHERE ' + where_str if where_str else ''} {sql_ord}".strip()
     else:
         sql = f"SELECT {sql_sel} FROM {{table_name}} {'WHERE ' + where_str if where_str else ''} {sql_grp} {sql_ord}".strip()
@@ -819,37 +860,79 @@ async def federated_query_processor(bp: Blueprint, raw_query: str, parsing_metad
     # Generate KPIs (Database Parameters)
     kpis = {}
     kpi_metrics = ['revenue', 'budget_allocated', 'budget_used', 'budget_remaining', 'capacity_mw', 'completion_percentage', 'delay_days']
-    for m in kpi_metrics:
-        # Only query plants that actually have this metric in their reflected schema
-        valid_plants_for_metric = []
-        for plant in plants_to_query:
-            schema = registry.db_schemas.get(plant, {})
-            # If we don't have schema info, or if the metric is in the database's schema, it's valid
+    
+    plant_kpi_tasks = []
+    plant_metrics_map = {}
+    active_kpi_plants = []
+    
+    for plant in plants_to_query:
+        schema = registry.db_schemas.get(plant, {})
+        supported_metrics = []
+        select_parts = []
+        for m in kpi_metrics:
             if not schema or m in schema.get("metrics", {}):
-                valid_plants_for_metric.append(plant)
-                
-        if not valid_plants_for_metric:
-            kpis[m] = 0.0
-            continue
-            
-        op = "AVG" if m == 'completion_percentage' else "SUM"
-        kpi_sql = f"SELECT {op}({m}) as {m} FROM {{table_name}} {'WHERE ' + where_str if where_str else ''}".strip()
-        kpi_tasks = [run_query_on_single_db(plant, kpi_sql, params) for plant in valid_plants_for_metric]
-        kpi_results = await asyncio.gather(*kpi_tasks)
+                op = "AVG" if m == 'completion_percentage' else "SUM"
+                select_parts.append(f"{op}({m}) as {m}")
+                supported_metrics.append(m)
         
-        valid_vals = [res[0].get(m) for res in kpi_results if res and res[0].get(m) is not None]
-        if not valid_vals:
-            kpis[m] = 0.0
-        else:
+        if select_parts:
+            kpi_sql = f"SELECT {', '.join(select_parts)} FROM {{table_name}} {'WHERE ' + where_str if where_str else ''}".strip()
+            async def run_safe_kpi(p_name=plant, sql_stmt=kpi_sql):
+                try:
+                    return await run_query_on_single_db(p_name, sql_stmt, params)
+                except Exception as ex:
+                    logger.error(f"KPI Query Error on {p_name}: {ex}")
+                    return []
+            plant_kpi_tasks.append(run_safe_kpi())
+            plant_metrics_map[plant] = supported_metrics
+            active_kpi_plants.append(plant)
+            
+    if plant_kpi_tasks:
+        kpi_db_results = await asyncio.gather(*plant_kpi_tasks)
+        
+        metric_sums = {m: 0.0 for m in kpi_metrics if m != 'completion_percentage'}
+        metric_counts = {m: 0 for m in kpi_metrics if m != 'completion_percentage'}
+        completion_percentage_vals = []
+        
+        for plant, res in zip(active_kpi_plants, kpi_db_results):
+            if res and res[0]:
+                row = res[0]
+                for m in plant_metrics_map.get(plant, []):
+                    val = row.get(m)
+                    if val is not None:
+                        if m == 'completion_percentage':
+                            completion_percentage_vals.append(val)
+                        else:
+                            metric_sums[m] += val
+                            metric_counts[m] += 1
+                            
+        for m in kpi_metrics:
             if m == 'completion_percentage':
-                kpis[m] = round(sum(valid_vals) / len(valid_vals), 2)
+                if completion_percentage_vals:
+                    kpis[m] = round(sum(completion_percentage_vals) / len(completion_percentage_vals), 2)
+                else:
+                    kpis[m] = 0.0
             else:
-                kpis[m] = round(sum(valid_vals), 2)
+                kpis[m] = round(metric_sums[m], 2)
+    else:
+        for m in kpi_metrics:
+            kpis[m] = 0.0
 
     # Aggregation / Full Result Processing
-    if is_profile_request:
+    if is_row_retrieval:
         results = []
         for res in db_results: results.extend(res)
+        
+        # Risk 2: Normalize row keys so they all have the exact same set of keys
+        if results:
+            all_keys = set()
+            for r in results:
+                all_keys.update(r.keys())
+            for r in results:
+                for k in all_keys:
+                    if k not in r:
+                        r[k] = None
+                        
         raw_sql = interpolate_sql(sql.replace("{table_name}", "metrics_site_X"), params)
         return {
             "status": "success", 
@@ -1040,7 +1123,9 @@ async def call_ollama_fallback(raw_query: str) -> Blueprint:
         for m in registry.metrics:
             if m.lower() in raw_query.lower():
                 bp_data["metrics"].append(m)
-        if not bp_data["metrics"] and bp_data["operation"] != "FULL_DETAILS" and not any(f["column"] in ["project_id", "project_name"] for f in bp_data["filters"]):
+        row_retrieval_ops = {"LIST", "SHOW", "FIND", "WHICH", "FULL_DETAILS"}
+        op_upper = bp_data["operation"].upper() if bp_data["operation"] else ""
+        if not bp_data["metrics"] and op_upper not in row_retrieval_ops and not any(f["column"] in ["project_id", "project_name"] for f in bp_data["filters"]):
             bp_data["metrics"] = ["revenue"]
 
     # Map filters / categoricals
@@ -1099,8 +1184,11 @@ async def call_ollama_fallback(raw_query: str) -> Blueprint:
 async def handle_query(payload: QueryBlueprintPayload):
     start = time.perf_counter()
     bp = payload.blueprint
-    is_profile = bp and any(f.get('column') in ['project_id', 'project_name'] for f in bp.filters)
-    if payload.force_llm or not bp or (not bp.metrics and not is_profile): 
+    is_row_ret = bp and (
+        any(f.get('column') in ['project_id', 'project_name'] for f in bp.filters) or
+        (bp.operation and bp.operation.upper() in ["LIST", "SHOW", "FIND", "WHICH", "FULL_DETAILS"])
+    )
+    if payload.force_llm or not bp or (not bp.metrics and not is_row_ret): 
         bp = await call_ollama_fallback(payload.raw_query)
     data = await federated_query_processor(bp, payload.raw_query, payload.parsing_metadata)
     data["insights"] = {"summary": "Retrieved results.", "analysis": f"Federated across {data.get('plants_queried', 0)} sites."}
