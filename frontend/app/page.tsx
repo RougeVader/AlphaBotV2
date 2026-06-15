@@ -322,7 +322,22 @@ export default function Home() {
             setRecentQueries(prev => {
               const filtered = prev.filter(item => item.query.toLowerCase() !== query.toLowerCase());
               const updated = [{ query, result: data }, ...filtered].slice(0, 10);
-              localStorage.setItem('alphabot_recents', JSON.stringify(updated));
+              
+              // Strip out the massive results array to prevent QuotaExceededError in localStorage
+              const cleanedForStorage = updated.map(item => ({
+                query: item.query,
+                result: item.result ? {
+                  ...item.result,
+                  results: [] 
+                } : null
+              }));
+              
+              try {
+                localStorage.setItem('alphabot_recents', JSON.stringify(cleanedForStorage));
+              } catch (e) {
+                console.error("Failed to save recents to localStorage:", e);
+              }
+              
               return updated;
             });
           }, 5000);
@@ -338,10 +353,16 @@ export default function Home() {
 
   const loadRecent = (item: {query: string, result: any}) => {
     setLiveQuery(item.query);
-    setResults(item.result);
-    if (item.result?.kpis) setLiveKpis(item.result.kpis);
-    setError(null);
-    setExecutionLatency(item.result?.metadata?.backend_ms || null);
+    // If the cached item has raw results data, load it instantly (active session).
+    // Otherwise, trigger the fast backend query fetch again (restored from localStorage).
+    if (item.result && item.result.results && item.result.results.length > 0) {
+      setResults(item.result);
+      if (item.result?.kpis) setLiveKpis(item.result.kpis);
+      setError(null);
+      setExecutionLatency(item.result?.metadata?.backend_ms || null);
+    } else {
+      handleQuery(item.query);
+    }
   };
 
   return (
