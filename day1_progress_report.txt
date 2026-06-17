@@ -1,0 +1,24 @@
+# ALPHABOT SPRINT DEVELOPMENT REPORT: DAY 1
+Date: June 3, 2026
+Status: Functional Prototype (High-Level Reasoning Stage)
+
+## 1. Objectives & Technical Focus
+The primary focus of Day 1 was establishing the core full-stack scaffolding and building an initial natural-language-to-SQL translation prototype. The target was to parse natural queries and compile SQL statements against a local transactional database.
+
+## 2. Technical Milestones Achieved
+* **Scaffolding**: Created a Next.js (TypeScript) frontend client and a FastAPI (Python 3.13) backend web server.
+* **Database Layer**: Implemented a mock database containing 250,000 rows of transactional records with indexes on key columns (e.g., date, department, and transaction types) to simulate enterprise workloads.
+* **Client-Side Tokenizer**: Developed a deterministic string tokenizer on the client that parses words on spacebar input to build a structured JSON "Query Blueprint" representing actions, metrics, and filter dimensions.
+* **Local LLM Fallback Integration**: Configured connection routing to a local Ollama instance running the `llama3.2` model to act as a fallback translation engine for complex or ambiguous user queries.
+* **Logical Operations Compiler**: Implemented backend translation algorithms for mathematical benchmarking ("just greater than") and gap analysis ("ahead by"), which are parsed into multi-stage SQL execution plans.
+
+## 3. Engineering Challenges & Mitigations
+* **The "Whole-Table Leak" Bug**: 
+  * *Problem*: If the tokenizer or LLM failed to identify filter dimensions (e.g., specific departments), the query defaulted to summing the entire database, returning misleading corporate-wide aggregates.
+  * *Fix*: Implemented boundary guard checks in the query generator. If no valid filter options are detected in the query, execution halts and returns a clear error prompt rather than leaking broad database sums.
+* **LLM Schema Mismatches & Hallucinations**:
+  * *Problem*: The LLM frequently generated queries referencing non-existent columns (like `department_name` or `year`) or returned unstructured JSON text that crashed Pydantic deserialization on the backend.
+  * *Fix*: Enforced strict validation models using Pydantic on HTTP route entries and added basic JSON cleanup regex blocks to sanitize the raw LLM responses before parsing.
+* **Temporal Collation Logic**:
+  * *Problem*: Handling date tokens like "2026" (calendar year) vs. "FY2026" (fiscal year) caused SQL compile mismatches.
+  * *Fix*: Integrated SQLite `strftime` parsing to dynamically convert date inputs into correct SQL date fields.

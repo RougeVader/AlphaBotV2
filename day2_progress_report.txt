@@ -1,0 +1,26 @@
+# ALPHABOT SPRINT DEVELOPMENT REPORT: DAY 2
+Date: June 4, 2026
+Status: Multi-DB Federated Query Scaffold
+
+## 1. Objectives & Technical Focus
+Day 2 focused on transforming the text-to-SQL prototype into a client-first parser model, scaling the database layer from a single database to multiple federated databases, and implementing automated verification harnesses.
+
+## 2. Technical Milestones Achieved
+* **Client-First Parser Scaffold**: Rebuilt the query processing pipeline to trust the client-side deterministic Trie-based parser blueprint first, relegating the local LLM strictly to an on-demand fallback layer.
+* **LLM Fallback Upgrade**: Switched the local LLM model from `llama3.2` to `phi3.5:3.8b` (Microsoft Phi-3.5) due to its superior instruction-following, parameter-binding accuracy, and structured JSON outputs.
+* **Database Federation**: Expanded the single-database architecture to a federated cluster of **8 separate SQLite databases** (each representing an independent power plant site location).
+* **Automated Accuracy Verification Harness**:
+  - `generate_accuracy_report.py`: Programmatically executes raw SQL queries directly across the SQLite files to compile "Ground Truth" answers.
+  - `run_api_test_harness.py`: Executes natural language requests against FastAPI endpoints and automatically asserts results against the compiled ground truth.
+* **Trie Parser Implementation**: Created an in-memory prefix trie (`MetadataTrie`) on the client to map, parse, and classify multi-word dimension parameters (like `three mile island`, `palo verde`) in \(O(W)\) time.
+
+## 3. Engineering Challenges & Mitigations
+* **Zombie Server Port Conflicts**:
+  * *Problem*: Hanging ASGI server processes in the local environment caused port-binding conflicts, freezing the development hot-reload pipeline.
+  * *Fix*: Implemented clean shutdown scripts (`stop.bat`) that query active system ports and terminate lingering python/node processes dynamically.
+* **Backend Blueprint Ingestion Regressions**:
+  * *Problem*: The query processor was completely ignoring client-side parsed blueprints and executing LLM translation calls for every single request, which introduced significant latency (~2.5s) and parsing errors.
+  * *Fix*: Redesigned the FastAPI route handler to validate the incoming client blueprint structure. If metrics are present and no unknown tokens are identified, it routes directly to SQL generation, bypassing the LLM.
+* **Reflected Registry Mismatch**:
+  * *Problem*: The unit test suite failed repeatedly due to metadata registry mismatches between test environments and active server runtimes.
+  * *Fix*: Refactored the backend `MetadataRegistry` into a thread-safe **Singleton** pattern, guaranteeing consistent schema maps during testing and API runtime.

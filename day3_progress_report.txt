@@ -1,0 +1,27 @@
+# ALPHABOT SPRINT DEVELOPMENT REPORT: DAY 3
+Date: June 5, 2026
+Status: Parallel Database Federation & Semantic Caching
+
+## 1. Objectives & Technical Focus
+Day 3 focused on implementing parallel SQL execution across multiple databases, building a dual-tier semantic cache layer to eliminate redundant database I/O, and resolving data visualization and formatting issues.
+
+## 2. Technical Milestones Achieved
+* **Multi-Source Parallel Execution**: Re-architected the database query layer to query all 8 SQLite database files in parallel for every user request using Python `asyncio` tasks gathered concurrently.
+* **Dual-Tier Semantic Cache**:
+  1. *Exact Match Cache*: Instantly resolves identical query strings.
+  2. *Normalized Logic Cache*: Strips linguistic noise (such as "what is the", "for the") and sorts filters (e.g., matching `"revenue of solar"` and `"solar revenue"` to the same cache key).
+  - *Result*: Cached queries are served in **<2ms**, bypassing database I/O and LLM fallbacks entirely.
+* **Advanced Temporal Logic**: Integrated regex extraction for exact `YYYY-MM-DD` date structures. Modified the SQL query compiler to utilize SQL `DATE()` functions, resolving date aggregation failures.
+* **Parallel UI Architecture**: Redesigned the Next.js layout into a Triple-Column Parallel View, allowing users to view data visualizations, SQL pipelines, and AI-generated text insights simultaneously.
+* **Real-Time Input Debouncing**: Added a 350ms debounced input change hook to submit queries automatically as the user types, creating a live analytics experience.
+
+## 3. Engineering Challenges & Mitigations
+* **Label Redundancy & Clutter**:
+  * *Problem*: The UI chart consolidated label fields improperly, generating redundant strings like "Total total revenue".
+  * *Fix*: Implemented string normalization in the charts' label generator to strip duplicate action/metric suffixes.
+* **Metric Unit Blindness**:
+  * *Problem*: Non-currency metrics (such as headcount or completion percentages) defaulted to displaying USD currency symbols ($), leading to confusing chart outputs.
+  * *Fix*: Upgraded the metadata processor to attach unit tags (`USD`, `Units`, `%`) to SQL outputs, enabling the chart UI to dynamically format the Y-axis.
+* **Hydration Build Failures**:
+  * *Problem*: Absolute positioning inside UI components caused Next.js server-side rendering (SSR) hydration crashes.
+  * *Fix*: Replaced Radix Tabs with a custom React state ButtonGroup component, ensuring compile-clean static page builds.

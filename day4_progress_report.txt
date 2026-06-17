@@ -1,0 +1,35 @@
+# ALPHABOT SPRINT DEVELOPMENT REPORT: DAY 4
+Date: June 15, 2026
+Status: Production Optimizations, Schema-Agnostic caching, & UX Resilience
+
+## 1. Objectives & Technical Focus
+Day 4 focused on system optimization, schema-agnostic connection configuration, parallelizing database KPI generation, preventing local storage crashes, and enhancing user experience during query loading states.
+
+## 2. Technical Milestones Achieved
+* **Introspection Cache & 240x Speedup**:
+  - Implemented schema reflection caching in `backend/metadata_cache.json` using SQLAlchemy core.
+  - Added timestamp drift checks (`mtime`) on database files on startup. The engine bypasses introspection on cache hits, reducing start-up time from **16,000ms to 65ms**. Test suite run time was reduced from **27s to 1.1s**.
+* **Parallelized KPI Aggregation**:
+  - Consolidated the sequential 7-loop database calls for KPI aggregates into a single SQL SELECT statement per database site.
+  - Executed these consolidated queries in parallel via `asyncio.gather`, reducing total database queries from 56 calls to exactly 8. This achieved a **7x speedup** on metric aggregation.
+* **General Row Retrieval (SELECT * )**:
+  - Implemented support for listing queries (like *"what are the projects with GE Power"* or *"list projects"*).
+  - The query builder identifies row-retrieval operations (like `LIST` or `SHOW` without explicit metrics) and compiles SQL statement selections as `SELECT *` instead of aggregating the default `revenue` metric, returning unified records with the unit `"RawData"`.
+  - Added client-side Trie parsing in `frontend/app/engine.ts` to identify retrieval keywords, running them locally and bypassing LLM latency.
+* **LocalStorage Quota Mitigation**:
+  - Resolved browser `QuotaExceededError` runtime crashes caused by saving large results data arrays inside `localStorage` (`alphabot_recents`).
+  - The client now strips the `results` data array from history entries before serializing to localStorage. Clicking a restored history entry re-queries the high-speed backend dynamically.
+* **Stale-While-Revalidate Loading UX**:
+  - Refactored the live KPI card strip in `frontend/app/page.tsx` to persist the previous metric values during requests at `opacity-70` with a gentle text pulsing style overlay, rather than flashing empty loading skeletons.
+* **Dialect-Independent SQL Compiler**:
+  - Integrated dynamic date function translation (e.g. converting `strftime` to `to_char` or `DATE_FORMAT`) and parameter binding conversions in `main.py` to allow running backend federation agnostically across SQLite, MySQL, and PostgreSQL engines.
+
+## 3. Engineering Challenges & Mitigations
+* **Schema Divergence in Merged Data**:
+  * *Problem*: Merging rows from multiple database files with slightly different schema columns caused the Next.js table ledger to hide columns present in later rows but missing in the first row.
+  * *Fix*: Implemented row-key normalization in the backend. When compiling federated row results, it builds a union of all dictionary keys and pads missing fields in any row with `None`/`null`.
+* **API Fetch Proxy Timeouts**:
+  * *Problem*: Relative API call fetches (like `/api/metadata`) failed sporadically when Next.js proxy rewrites lagged.
+  * *Fix*: Replaced all relative fetches with direct backend host ports (`http://127.0.0.1:8000/api/...`) to eliminate router proxy overhead.
+* **Expanded Verification**:
+  * Added 3 new unit and integration test assertions verifying row-retrieval operations, with the entire **26-test suite passing cleanly** in Python.
